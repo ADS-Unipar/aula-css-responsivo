@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+    font-family: "Oswald", sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #EDEDED;
+}
+
+#topo {
+    background-color: #FFFFFF;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 80px;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#toggle-menu {
+    display: none;
+    border: none;
+    border-radius: 8px;
+    background-color: #EDEDED;
+    width: 48px;
+    height: 48px; 
+    justify-content: center;
+    align-items: center; 
+    position: relative;
+}
+
+#toggle-menu span{
+    width: 30px;
+    height: 2px;
+    background-color:#4d66d2 ;
+}
+
+#toggle-menu span::before,
+#toggle-menu span::after{
+    content: '';
+    display: flex;
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color:#4d66d2 ;
+}
+#toggle-menu span::before{
+    top: 15px;
+}
+#toggle-menu span::after{
+    top: 30px;
+}
+
+#logo{
+    width: 60px;
+    height: 60px;
+    display: block;
+}
+
+#menu-content{
+    min-width: 300px;
+    display: flex;
+}
+
+#menu {
+ display: flex;
+ width: 100%;
+ list-style: none;
+ padding: 0;
+ margin: 0;
+ flex-direction: row;
+ justify-content: space-between;
+ align-items: center;
+
+}
+
+.menu-item > a{
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    height: 60px;
+    padding: 0 10px;
+    color: #4d66d2;
+    line-height: 60px;
+    transition: 1s;
+}
+
+.menu-item > a:hover,
+.menu-item > a:focus {
+    background-color: #00d2fc;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+@media screen and (max-width:480px) {
+    body {
+        background-color: red;
+    }
+
+    #menu-content {
+        height: calc(100vh - 80px);
+        position: fixed;
+        top: 80px;
+        right: -300px;
+        opacity: 0;
+        left: auto;
+        background: #fff;
+        flex-direction: column;
+        transition: 0.5s;
+    }
+
+    #menu{
+        flex-direction: column;
+    }
+
+    #toggle-menu{
+        display: flex;
+    }
+    .menu-item {
+        width: 100%;
+        padding: 0 12px;
+        display: flex;
+        margin-bottom: 10px;
+    }
+    .menu-item > a{
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu-open #menu-content{
+        right: 0;
+        opacity: 1;
+    }
+    
+
+}
